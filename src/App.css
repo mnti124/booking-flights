@@ -1,38 +1,152 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.island-container{
+    padding: 2rem 4rem;
+    color: #fff;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background: linear-gradient(174deg, rgba(8,17,18,0.9444152661064426) 0%, rgba(221,220,219,1) 60%, rgba(41,78,85,1) 99%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header h1{
+    font-size: 2.3rem;
+    margin-bottom: 30px;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+img{
+    width: 26vw;
+    height: 43vh;
+    outline: none;
+    border: 1px solid aliceblue;
+    border-radius: 12px;
 }
 
-.App-link {
-  color: #61dafb;
+.island-description{
+    padding: 2.8rem 4rem;
+    text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+section h2{
+    font-size: 2rem;
+    margin-bottom: .7rem;
+}
+
+.island-description > p{
+    color: #30475e;
+    font-size: 1.1rem;
+    margin: auto;
+    width: 50%;
+}
+
+/* Ibiza */
+.ibiza__container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.ibiza__header{
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+}
+
+h1{
+    text-align: center;
+    font-weight: 700;
+    font-size: 3.5rem;
+    padding-top: .5rem;
+}
+
+hr{
+    margin-bottom: 27px;
+}
+
+.slide-img{
+    margin: -1px;
+}
+
+.slide-img > img{
+    /* width: 100%;
+    height: 200px;
+    background-color: yellow;
+    object-fit: cover;
+    background-repeat: no-repeat; */
+    object-fit: cover;
+    height: 500px;
+    outline: none;
+    border: 1px solid aliceblue;
+    border-radius: 2px;
+    width: 100%;
+}
+.slider{
+    /* width: 100vh;
+    height: 400px;
+    background-size: cover; */
+    margin: auto;
+    box-shadow: 1px 2px 4px 1px #434441;
+    --webkit-filter: drop-shadow(1px 2px 4px 1px #434441);
+    filter: drop-shadow(1px 2px 4px 1px #434441); 
+    width: 66%;
+}
+
+p{
+    padding: 2rem;
+    width: 66%;
+    margin: auto;
+    line-height: 1.5;
+}
+
+/* Description */
+
+.ibiza__main__description{
+    display: flex;
+    background-color:rgb(228, 222, 222);
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.ibiza__main__wrapper > h2{
+    text-align: center;
+    font-size: 2.7rem;
+}
+
+.sub__info__wrapper{
+    padding: 1.6rem;
+}
+
+.sub__info__wrapper > h3{
+    text-align: center;
+    font-size: 1.4rem;
+    padding-bottom: 1rem;
+}
+
+.sub__info__wrapper > img.description__img{
+    width: 450px;
+    height: 278px;
+    outline: none;
+    border: 1px solid aliceblue;
+    border-radius: 2px;
+    object-fit: cover;
+}
+
+.sub__info__wrapper > ul{
+    margin-left: 18px;
+    padding: 1rem 3rem;
+    line-height: 1.5;
+    font-size: 1.1rem;
 }

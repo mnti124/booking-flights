@@ -1,0 +1,73 @@
+.login{
+    width: 100%;
+    height: 100vh;
+    padding: 3rem;
+}
+
+.login__wrapper{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 2rem auto;
+    height: 140%;
+    max-height: 500px;
+    border: 1px solid lightgrey;
+}
+
+.login__wrapper > img{
+    width: 50%;
+    height: 50%;
+    outline: none;
+    border: 1px solid rgb(50, 50, 51);
+    border-radius: 3px;
+    max-width: 120px;
+    max-height: 120px;
+    margin-top: 2%;
+}
+
+.login__wrapper > form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 7%;
+    padding: 0 3.5rem 3.5rem;
+    width: 58%;
+}
+
+label{
+    line-height: 1.9;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+form > input{
+    padding: .5rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+form > button {
+    margin-top: 7%;
+    text-align: center;
+    padding: .4rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: #FFD240;
+    /* box-shadow: 1px -1px 16px 5px #D3D3D3; */
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+
+.create__account{
+    position: relative;
+    width: 44%;
+    text-align: center;
+    padding: .4rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: #D3D3D3;
+    border: 1px solid #000;
+    border-radius: 3px;
+}
