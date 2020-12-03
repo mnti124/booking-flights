@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/booking-flights/static/css/main.558d298b.chunk.css",
+    "main.js": "/booking-flights/static/js/main.78d2def9.chunk.js",
+    "main.js.map": "/booking-flights/static/js/main.78d2def9.chunk.js.map",
+    "runtime-main.js": "/booking-flights/static/js/runtime-main.d7ec0f72.js",
+    "runtime-main.js.map": "/booking-flights/static/js/runtime-main.d7ec0f72.js.map",
+    "static/css/2.62cc171c.chunk.css": "/booking-flights/static/css/2.62cc171c.chunk.css",
+    "static/js/2.c18a975b.chunk.js": "/booking-flights/static/js/2.c18a975b.chunk.js",
+    "static/js/2.c18a975b.chunk.js.map": "/booking-flights/static/js/2.c18a975b.chunk.js.map",
+    "index.html": "/booking-flights/index.html",
+    "static/css/2.62cc171c.chunk.css.map": "/booking-flights/static/css/2.62cc171c.chunk.css.map",
+    "static/css/main.558d298b.chunk.css.map": "/booking-flights/static/css/main.558d298b.chunk.css.map",
+    "static/js/2.c18a975b.chunk.js.LICENSE.txt": "/booking-flights/static/js/2.c18a975b.chunk.js.LICENSE.txt",
+    "static/media/beach1.f9d5a555.jpeg": "/booking-flights/static/media/beach1.f9d5a555.jpeg",
+    "static/media/breakfast1.365e99cb.jpeg": "/booking-flights/static/media/breakfast1.365e99cb.jpeg",
+    "static/media/card-beach.9a6f8a10.jpeg": "/booking-flights/static/media/card-beach.9a6f8a10.jpeg",
+    "static/media/card-milan.99615db0.jpeg": "/booking-flights/static/media/card-milan.99615db0.jpeg",
+    "static/media/card-southafrica.1de508d3.jpeg": "/booking-flights/static/media/card-southafrica.1de508d3.jpeg",
+    "static/media/card-tokyo.37bc0a05.jpeg": "/booking-flights/static/media/card-tokyo.37bc0a05.jpeg",
+    "static/media/coast.dc8af7ec.jpeg": "/booking-flights/static/media/coast.dc8af7ec.jpeg",
+    "static/media/event.34e8a3cb.jpeg": "/booking-flights/static/media/event.34e8a3cb.jpeg",
+    "static/media/front-beach.c48eeb88.jpeg": "/booking-flights/static/media/front-beach.c48eeb88.jpeg",
+    "static/media/HeaderSection.css": "/booking-flights/static/media/img-8.fabdf94d.jpg",
+    "static/media/sea.b22295af.jpeg": "/booking-flights/static/media/sea.b22295af.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d7ec0f72.js",
+    "static/css/2.62cc171c.chunk.css",
+    "static/js/2.c18a975b.chunk.js",
+    "static/css/main.558d298b.chunk.css",
+    "static/js/main.78d2def9.chunk.js"
+  ]
+}
