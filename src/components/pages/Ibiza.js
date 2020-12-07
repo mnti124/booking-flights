@@ -81,7 +81,7 @@ function Ibiza() {
                     subTitle="Events"
                     image={event}
                     subText={subText}
-
+                    width={"200px"}
                     />
                 </div>
 

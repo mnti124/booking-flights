@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react'
 import './NavBar.css';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Button from './Button'
 import Payment from './pages/Payment';
 import {auth} from './../firebase';
@@ -60,8 +60,8 @@ function NavBar(){
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/book-now" className="nav-link">
-                            Book Now
+                        <Link to="/flights" className="nav-link">
+                            Flights
                             
                         </Link>
                         {/* <Payment /> */}
@@ -81,7 +81,7 @@ function NavBar(){
                     </li>
                 </ul>
                 {user? <div className="nav__username"><h3>Welcome,</h3><span>{user.email}</span></div>: ''}
-                {button && <Button buttonStyle="btn--outline" handleLogout={handleUserLogout}>{user? 'SIGN OUT': 'SIGN IN'}</Button>}
+                {button && <Button buttonStyle="btn--outline" handleLogout={handleUserLogout} path={user? "/" :"/login"}>{user? 'SIGN OUT': 'SIGN IN'}</Button>}
                 
             </div>
         </nav>

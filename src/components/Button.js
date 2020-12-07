@@ -12,14 +12,15 @@ function Button({
     onClick,
     buttonStyle,
     buttonSize,
-    handleLogout
+    handleLogout,
+    path
 }) {
-
+    // to={user? "/" :"/login" || path} 
     const [{user}, dispatch] = useStateValue();
     const checkButtonStyle = STYLE.includes(buttonStyle)? buttonStyle : STYLE[0];
     const checkButtonSize = SIZE.includes(buttonSize)? buttonStyle : SIZE[0];
     return (
-        <Link to={user? "/" :"/login"} className="btn-mobile">
+        <Link to={path} className="btn-mobile">
             <button
             className={`btn ${checkButtonStyle} ${checkButtonSize}`}
             onClick={handleLogout}

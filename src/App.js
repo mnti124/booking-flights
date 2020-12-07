@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './components/pages/Home';
 import Ibiza from './components/pages/Ibiza';
-import Payment from './components/pages/Payment';
 import Footer from './components/Footer'
 import Login from './components/Login'
+import AvaliableFlights from './components/AvaliableFlights';
 import {useEffect} from 'react';
 import {useStateValue} from './StateProvider';
 import {auth} from './firebase';
@@ -58,6 +58,11 @@ function App() {
             <Login />
           </Route>
           
+          <Route path="/flights" exact>
+            <NavBar/>
+            <AvaliableFlights />
+          </Route>
+
           <Route path="/ibiza" exact>
             <NavBar/>
             <Ibiza />
