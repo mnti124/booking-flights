@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const secretkey = require('./secretkey.js');
+console.log(secretkey);
 //Stripe publishable key
 const stripe = require('stripe')(secretkey);
 const uuid = require('uuid');

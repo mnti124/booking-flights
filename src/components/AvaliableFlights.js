@@ -1,18 +1,25 @@
 import React, {useState, useEffect} from 'react'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { appID, appkey } from '../apikeys';
 import './AvaliableFlights.css';
 import FlightInfo from './FlightInfo';
 import Payment from './pages/Payment';
-
-//Key/Value pair to return aircode
-const aircodes = {
+import {appID, appkey} from '../apikeys';
+//Key/Value pair to return airport code
+const airPortcodes = {
     'Japan':'KIX',
     'US':'BFL',
     'Italy':'MXP',
     'Spain':'IBZ',
     'South Africa':'CPT'
+}
+
+//keys for airlines code
+const airlineCodes = {
+    'Japan': 'JL',
+    'Spain': 'PU',
+    'Italy': 'NO',
+    'South Africa':'GBB' 
 }
 
 function AvaliableFlights() {
@@ -28,7 +35,7 @@ function AvaliableFlights() {
     const [isLoading, setIsLoading] = useState(true)
     //Handleers
     const handleDepartureDate = (departureDate) => {
-        console.log(departureDate);
+        //console.log(departureDate);
         setDepartureDate(departureDate);
     }
 
@@ -45,57 +52,64 @@ function AvaliableFlights() {
 
     useEffect(() => {
         
-        const getAirCode = (country) => {
-            for(let eachcountry in aircodes){
+        const getAirPortCode = (country) => {
+            for(let eachcountry in airPortcodes){
                 if(eachcountry === country){
-                    return aircodes[eachcountry]; 
+                    return airPortcodes[eachcountry]; 
                 }
             }
            
         };
+
+        const getAirLineCode = (country) => {
+            for(let selectedCountry in airlineCodes){
+                if(selectedCountry === country){
+                    return airlineCodes[country]
+                }
+            }
+        }
     
-        //Fetching Arrival Data
+        //Fetching Data
         const fetchData = async()=>{
-            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+            //const proxyurl = "https://cors-anywhere.herokuapp.com/";
             //Getting aircode key based on selected country
-            const aircode = getAirCode(selectedCountry);
-            
+            const airPortcode = getAirPortCode(selectedCountry);
+            const airlineCode = getAirLineCode(selectedCountry);
+
+            console.log(typeof aircode)
+            console.log(airlineCode);
+            //Selected Arrival Date
             let arrivalDateStorage = {
                 year: arrivalDate.getFullYear(),
                 month: arrivalDate.getMonth() + 1,
                 day: arrivalDate.getDate()
             }
 
-            let departureDateObj = {
+            
+            let departureDateStorage = {
                 year: departureDate.getFullYear(),
                 month: departureDate.getMonth() + 1,
                 day: departureDate.getDate()
             }
     
-            const arrivalUrl = `${proxyurl}https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/${aircode}/arr/${arrivalDateStorage.year}/${arrivalDateStorage.month}/${arrivalDateStorage.day}/10?appId=${appID}&appKey=${appkey}=true&numHours=1&maxFlights=5`;
-            const departureURL = `${proxyurl}https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/BFL/dep/${departureDateObj.year}/${departureDateObj.month}/${departureDateObj.day}/2?appId=${appID}&appKey=${appkey}=false&numHours=2&maxFlights=5`;
+            
             try{
-                const arrivalResponse = await fetch(arrivalUrl);
-                const arrivalDATA = await arrivalResponse.json();
+                if(Object.keys((arrivalDateStorage).length !== 0) && (airPortcode !== undefined) && (Object.keys(departureDateStorage).length !== 0)){
+                    const arrivalResponse = await fetch(`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/${airPortcode}/arr/${arrivalDateStorage.year}/${arrivalDateStorage.month}/${arrivalDateStorage.day}/10?appId=${appID}&appKey=${appkey}&utc=false&numHours=1&carrier=${airlineCode}&maxFlights=5`);
+                    const arrivalDATA = await arrivalResponse.json();
 
-                const departureResponse = await fetch(departureURL);
-                const departureDATA = await departureResponse.json();
-                
-
-                setFetchedArrivalData(arrivalDATA);
-                setFetchedDepartureData(departureDATA);
-
-                setIsLoading(false);
-                if(arrivalDate !== null && departureDate !== null){
-                    //alert('Please select a country you would like to visit')
+                    const departureResponse = await fetch(`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/BFL/dep/${departureDateStorage.year}/${departureDateStorage.month}/${departureDateStorage.day}/10?appId=${appID}&appKey=${appkey}&utc=false&numHours=1&maxFlights=5`);
+                    const departureDATA = await departureResponse.json();
                     
-                
-                }else{
-                    console.log('no error message while fetching data')
-                }
 
-                // setFetchedArrivalData(arrivalDATA);
-                // setFetchedDepartureData(departureDATA);
+                    setFetchedArrivalData(arrivalDATA);
+                    setFetchedDepartureData(departureDATA);
+
+                    setIsLoading(false);
+                    console.log(isLoading);
+                
+                }
+                
                 
             }catch(err){
                 console.log(err);
@@ -103,19 +117,15 @@ function AvaliableFlights() {
             
         }
         
-        //fetchData();
+        fetchData();
        
-        
+        //console.log(arrivalData.appendix.airports[3])
         //console.log(arrivalData.appendinx.airports[0].iata);
         // console.log(arrivalDateStorage);
         //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-            //const url = `https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/${aircode}/arr/${arrivalDateStorage.year}/${arrivalDateStorage.month}/${arrivalDateStorage.day}/10?appId=34cf4e36&appKey=bacfdec53b92ffc747e8f36ef63d6f0a&utc=true&numHours=1&maxFlights=5`;
+    
         
-       // arrivalDateStorage = {};
-        
-       
-        
-    }, [selectedCountry, departureDate, arrivalDate]);
+    }, [selectedCountry, departureDate, arrivalDate, isLoading]);
 
    
     return (
@@ -142,55 +152,40 @@ function AvaliableFlights() {
                         <h3 className="depart">Depart</h3>
                         <DatePicker selected={departureDate} onChange={handleDepartureDate} className="flights__date"/>
                         
-                        <h3 className="return">Return</h3>
+                        <h3 className="return">Arrival</h3>
                         <DatePicker selected={arrivalDate} onChange={handleArrivalDate} className="flights__date"/>
                     </div>
-                    
-
                     <div className="flights__wrapper__departures">
                         {/* List of Flights */}
                         <h2 className="flights__departures__departure">Departures</h2>
-                        <FlightInfo
-                        country={selectedCountry}
-                        payment={ <Payment /> }
-                        />
-                           
-                        <FlightInfo 
-                        country={selectedCountry}
-                        payment={ <Payment />}
-                        />
-                        <FlightInfo
-                        country={selectedCountry}
-                        payment={ <Payment />}
-                        />
-                    </div>
+                        {!isLoading && departureData.length !== 0?
+                            <FlightInfo
+                            selectedCountry='U.S.A'
+                            {...departureData.appendix.airports[0]}
+                            {...departureData.appendix.airlines[0]}
+                            {...departureData.request.date}
+                            price={250}
+                            payment={<Payment />}
+                            />
 
-                    <div className="flights__wrapper__arrivals">
-                        {
-                            //(isFetchSuccessful)? <h1>fetched</h1>:''
-                            //(!isFetchSuccessful)? 
-                            // <FlightInfo
-                            // airportAddress={arrivalData.appendix.airports[0]}
-                            // airline={arrivalData.appendinx.airlines[3].name}
-                            // airportCode={arrivalData.appendinx.airports[0].iata}
-                            // departureDate={arrivalData.request.date.interpreted}
-                            // price={300} 
-                            // />
-
-                            //:
-                            //''
+                            :
+                            ''
                         }
-
+                    </div>
+                    <div className="flights__wrapper__arrivals">
                         <h2 className="flights__arrivals__arrival">Arrivals</h2>
-                       <FlightInfo
-                        country={selectedCountry}
-                        />
-                       <FlightInfo
-                        country={selectedCountry}
-                        />
-                       <FlightInfo
-                        country={selectedCountry}
-                        />
+                            {!isLoading && arrivalData.length !== 0? 
+                                <FlightInfo
+                                selectedCountry={selectedCountry}
+                                {...arrivalData.appendix.airports[0]}
+                                {...arrivalData.appendix.airlines[0]}
+                                {...arrivalData.request.date}
+                                price={250}
+                                />
+                                :
+                                ''
+                            }
+                       
                     </div>
                 </div>
             </div>
