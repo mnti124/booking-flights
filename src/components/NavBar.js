@@ -2,7 +2,6 @@ import { React, useState, useEffect } from 'react'
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 import Button from './Button'
-import Payment from './pages/Payment';
 import {auth} from './../firebase';
 import {useStateValue} from './../StateProvider';
 
@@ -12,7 +11,7 @@ function NavBar(){
     const [button, setButton] = useState(true);
 
     //state of user
-    const [{user}, dispatch] = useStateValue();
+    const [{user}] = useStateValue();
 
     //Handles user logout
     const handleUserLogout = ()=>{
@@ -75,13 +74,16 @@ function NavBar(){
                     <li className="nav-item">
                         <Link to={user? "/":"/login"} className="nav-link-mobile" onClick={handleUserLogout}>
                             {user? 'SIGN OUT': 'SIGN IN'}
-                            
-                           
                         </Link>
                     </li>
                 </ul>
                 {user? <div className="nav__username"><h3>Welcome,</h3><span>{user.email}</span></div>: ''}
-                {button && <Button buttonStyle="btn--outline" handleLogout={handleUserLogout} path={user? "/" :"/login"}>{user? 'SIGN OUT': 'SIGN IN'}</Button>}
+                {button && 
+                    <Link to={user? "/" :"/login"} className="btn-mobile">
+                        <Button buttonStyle="btn--outline" handleLogout={handleUserLogout}>
+                            {user? 'SIGN OUT': 'SIGN IN'}
+                        </Button>
+                    </Link>}
                 
             </div>
         </nav>
