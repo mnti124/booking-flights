@@ -43,10 +43,7 @@ function App() {
    
     <div>
       
-      <Router>
-        
-      
-       
+      <Router> 
         <Switch>
           <Route path="/" exact>
             <NavBar/>
@@ -68,10 +65,6 @@ function App() {
             <Ibiza />
             <Footer />
           </Route>
-          {/* <Route path="/milan" exact component={Ibiza} />
-          <Route path="/tokyo" exact component={Ibiza} />
-          <Route path="/south-africa" exact component={Ibiza} />
-          <Route path="/book-now" exact component={Payment} /> */}
         </Switch>
       
       </Router>

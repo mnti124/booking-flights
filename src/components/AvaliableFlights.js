@@ -85,7 +85,6 @@ function AvaliableFlights() {
                 day: arrivalDate.getDate()
             }
 
-            
             let departureDateStorage = {
                 year: departureDate.getFullYear(),
                 month: departureDate.getMonth() + 1,
@@ -118,12 +117,6 @@ function AvaliableFlights() {
         }
         
         fetchData();
-       
-        //console.log(arrivalData.appendix.airports[3])
-        //console.log(arrivalData.appendinx.airports[0].iata);
-        // console.log(arrivalDateStorage);
-        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    
         
     }, [selectedCountry, departureDate, arrivalDate, isLoading]);
 
