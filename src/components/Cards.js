@@ -4,8 +4,7 @@ import CardItem from './CardItem';
 import milan from '../images/card-milan.jpeg';
 import ibiza from '../images/card-beach.jpeg';
 import tokyo from '../images/card-tokyo.jpeg';
-import southafrica from '../images/card-southafrica.jpeg';
-
+import capetown from '../images/card-southafrica.jpeg';
 
 function Cards() {
     
@@ -37,10 +36,10 @@ function Cards() {
                         path="/tokyo"
                         />
                         <CardItem
-                        src={southafrica}
+                        src={capetown}
                         text="This is one of the most relaxing beaches to visit"
                         label="South Africa"
-                        path="/south-africa"
+                        path="/capetown"
                         />
                     </ul>
                 </div>

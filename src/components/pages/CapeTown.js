@@ -1,15 +1,10 @@
 import React from 'react'
-import Description from './../Description';
+import Description from '../Description';
 import {Fade} from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css'
-import './../../App'
-import coast from '../../images/coast.jpeg';
-import frontBeach from '../../images/front-beach.jpeg';
-import sea from '../../images/sea.jpeg';
-import event from '../../images/event.jpeg';
-import beach from '../../images/beach1.jpeg';
-import breakfast from '../../images/breakfast1.jpeg';
-function Ibiza() {
+import breakfast from '../../images/capebreakfast.jpeg';
+import zoo from '../../images/capezoo.jpeg';
+import beach from '../../images/capebeach.jpeg';
+function CapeTown() {
     const fadeProperties= {
         duration: 3000,
         transitionDuration: 550,
@@ -29,25 +24,25 @@ function Ibiza() {
             <div className="city__header">
                 {/* Image Slider Component */}
                 {/* Little text about ibiza */}
-                <h1>Welcome to Ibiza</h1>
+                <h1>Welcome to Cape Town</h1>
                 <hr/>
                 <div className="slider">
                     <Fade {...fadeProperties}>
                         <div className="each-slide">
                             <div className="slide-img">
-                                <img src={coast} alt="Coast"/>
+                                <img src="https://images.pexels.com/photos/963713/pexels-photo-963713.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Cape Town Horizon"/>
                             </div>
                         </div>
                         
                         <div className="each-slide">
                             <div className="slide-img">
-                                <img src={frontBeach} alt="Beach"/>
+                                <img src="https://images.pexels.com/photos/3889918/pexels-photo-3889918.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Zoo"/>
                             </div>
                         </div>
 
                         <div className="each-slide">
                             <div className="slide-img">
-                                <img src={sea} alt="Sea"/>
+                                <img src="https://images.pexels.com/photos/625414/pexels-photo-625414.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Coast" />
                             </div>
                         </div>
 
@@ -79,7 +74,7 @@ function Ibiza() {
                     />
                     <Description
                     subTitle="Events"
-                    image={event}
+                    image={zoo}
                     subText={subText}
                     width={"200px"}
                     />
@@ -90,4 +85,4 @@ function Ibiza() {
     )
 }
 
-export default Ibiza
+export default CapeTown

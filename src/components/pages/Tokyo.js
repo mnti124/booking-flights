@@ -1,15 +1,11 @@
 import React from 'react'
-import Description from './../Description';
+import Description from '../Description';
 import {Fade} from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css'
-import './../../App'
-import coast from '../../images/coast.jpeg';
-import frontBeach from '../../images/front-beach.jpeg';
-import sea from '../../images/sea.jpeg';
-import event from '../../images/event.jpeg';
-import beach from '../../images/beach1.jpeg';
-import breakfast from '../../images/breakfast1.jpeg';
-function Ibiza() {
+import palace from '../../images/palace.jpeg';
+import tokyo_restaurant from '../../images/tokyo_restaurant.jpg';
+import temple from '../../images/tokyo_temple.jpeg';
+
+function Tokyo() {
     const fadeProperties= {
         duration: 3000,
         transitionDuration: 550,
@@ -23,31 +19,30 @@ function Ibiza() {
         'Food delivered at your door',
         'Broad menu to choose from'
     ]
-
     return (
         <div className="city__container">
             <div className="city__header">
                 {/* Image Slider Component */}
                 {/* Little text about ibiza */}
-                <h1>Welcome to Ibiza</h1>
+                <h1>Welcome to Tokyo</h1>
                 <hr/>
                 <div className="slider">
                     <Fade {...fadeProperties}>
                         <div className="each-slide">
                             <div className="slide-img">
-                                <img src={coast} alt="Coast"/>
+                                <img src="https://images.pexels.com/photos/161251/senso-ji-temple-japan-kyoto-landmark-161251.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Tokyo Building"/>
                             </div>
                         </div>
                         
                         <div className="each-slide">
                             <div className="slide-img">
-                                <img src={frontBeach} alt="Beach"/>
+                                <img src="https://images.pexels.com/photos/3380920/pexels-photo-3380920.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Crowded City"/>
                             </div>
                         </div>
 
                         <div className="each-slide">
                             <div className="slide-img">
-                                <img src={sea} alt="Sea"/>
+                                <img src="https://images.pexels.com/photos/2389171/pexels-photo-2389171.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Bridge" />
                             </div>
                         </div>
 
@@ -66,20 +61,20 @@ function Ibiza() {
                 <div className="city__main__description">
                     
                     <Description
-                    subTitle="Breakfast"
-                    image={breakfast}
+                    subTitle="Tokyo Restaurant"
+                    image={tokyo_restaurant}
                     subText={subText}
 
                     />
                     <Description
-                    subTitle="Beach"
-                    image={beach}
+                    subTitle="Popular Buildings"
+                    image={palace}
                     subText={subText}
 
                     />
                     <Description
-                    subTitle="Events"
-                    image={event}
+                    subTitle="Temple"
+                    image={temple}
                     subText={subText}
                     width={"200px"}
                     />
@@ -90,4 +85,4 @@ function Ibiza() {
     )
 }
 
-export default Ibiza
+export default Tokyo

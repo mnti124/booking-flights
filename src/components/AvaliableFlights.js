@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import './AvaliableFlights.css';
 import FlightInfo from './FlightInfo';
-import Payment from './pages/Payment';
+import Payment from './Payment';
 import {appID, appkey} from '../apikeys';
 //Key/Value pair to return airport code
 const airPortcodes = {
@@ -85,7 +85,6 @@ function AvaliableFlights() {
                 day: arrivalDate.getDate()
             }
 
-            
             let departureDateStorage = {
                 year: departureDate.getFullYear(),
                 month: departureDate.getMonth() + 1,
@@ -118,12 +117,6 @@ function AvaliableFlights() {
         }
         
         fetchData();
-       
-        //console.log(arrivalData.appendix.airports[3])
-        //console.log(arrivalData.appendinx.airports[0].iata);
-        // console.log(arrivalDateStorage);
-        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    
         
     }, [selectedCountry, departureDate, arrivalDate, isLoading]);
 
