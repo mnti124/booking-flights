@@ -9,6 +9,10 @@ import AvaliableFlights from './components/AvaliableFlights';
 import {useEffect} from 'react';
 import {useStateValue} from './StateProvider';
 import {auth} from './firebase';
+import CapeTown from './components/pages/CapeTown';
+import Milan from './components/pages/Milan';
+import Tokyo from './components/pages/Tokyo';
+
 function App() {
   const [{}, dispatch] = useStateValue();
 
@@ -42,7 +46,6 @@ function App() {
   return (
    
     <div>
-      
       <Router> 
         <Switch>
           <Route path="/" exact>
@@ -58,6 +61,7 @@ function App() {
           <Route path="/flights" exact>
             <NavBar/>
             <AvaliableFlights />
+            <Footer />
           </Route>
 
           <Route path="/ibiza" exact>
@@ -65,6 +69,25 @@ function App() {
             <Ibiza />
             <Footer />
           </Route>
+
+          <Route path="/capetown" exact>
+            <NavBar/>
+            <CapeTown />
+            <Footer />
+          </Route>
+
+          <Route path="/milan" exact>
+            <NavBar/>
+            <Milan />
+            <Footer />
+          </Route>
+
+          <Route path="/tokyo" exact>
+            <NavBar/>
+            <Tokyo />
+            <Footer />
+          </Route>
+
         </Switch>
       
       </Router>

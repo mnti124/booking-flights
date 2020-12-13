@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import './AvaliableFlights.css';
 import FlightInfo from './FlightInfo';
-import Payment from './pages/Payment';
+import Payment from './Payment';
 import {appID, appkey} from '../apikeys';
 //Key/Value pair to return airport code
 const airPortcodes = {

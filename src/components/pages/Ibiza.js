@@ -25,8 +25,8 @@ function Ibiza() {
     ]
 
     return (
-        <div className="ibiza__container">
-            <div className="ibiza__header">
+        <div className="city__container">
+            <div className="city__header">
                 {/* Image Slider Component */}
                 {/* Little text about ibiza */}
                 <h1>Welcome to Ibiza</h1>
@@ -35,19 +35,19 @@ function Ibiza() {
                     <Fade {...fadeProperties}>
                         <div className="each-slide">
                             <div className="slide-img">
-                                <img src={coast}/>
+                                <img src={coast} alt="Coast"/>
                             </div>
                         </div>
                         
                         <div className="each-slide">
                             <div className="slide-img">
-                                <img src={frontBeach}/>
+                                <img src={frontBeach} alt="Beach"/>
                             </div>
                         </div>
 
                         <div className="each-slide">
                             <div className="slide-img">
-                                <img src={sea} />
+                                <img src={sea} alt="Sea"/>
                             </div>
                         </div>
 
@@ -61,9 +61,9 @@ function Ibiza() {
                     specimen book.
                 </p>
             </div>
-            <div className="ibiza__main__wrapper">
+            <div className="city__main__wrapper">
                 <h2>What's included?</h2>
-                <div className="ibiza__main__description">
+                <div className="city__main__description">
                     
                     <Description
                     subTitle="Breakfast"
