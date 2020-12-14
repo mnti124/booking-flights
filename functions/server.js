@@ -59,7 +59,9 @@ app.post('/payment', async(req,res)=>{
 
         })
         // .then(response => {
-            res.json({})
+            res.status(201).send({
+                'Success': 'Successful payment'
+            })
         // })
         //Sending a message to user if charge was successfull
         
@@ -71,7 +73,8 @@ app.post('/payment', async(req,res)=>{
    
 })
 
+const port = process.env.NODE_ENV || 8080;
 
-app.listen(8080, function(){
+app.listen(port, function(){
     console.log('Server listening at port 8080');
 })
