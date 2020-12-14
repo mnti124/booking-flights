@@ -2,11 +2,13 @@
   "name": "webapp",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@stripe/stripe-js": "^1.11.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",
     "@testing-library/user-event": "^12.2.2",
+    "concurrently": "^5.3.0",
     "firebase": "^8.1.1",
     "react": "^17.0.1",
     "react-datepicker": "^3.3.0",
@@ -22,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "cd functions && node server.js && cd webapp && npm install && npm run build"
+    "heroku-postbuild": "npm run build && cd functions && nodemon server.js"
   },
   "eslintConfig": {
     "extends": [

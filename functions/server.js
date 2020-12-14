@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const secretkey = require('./secretkey.js');
+const path = require('path');
 console.log(secretkey);
 //Stripe publishable key
 const stripe = require('stripe')(secretkey);
@@ -72,6 +73,16 @@ app.post('/payment', async(req,res)=>{
     }
    
 })
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+if(process.env.NODE_ENV === 'production') 
+{  
+    app.use(express.static(path.join(__dirname, 'client/build'))); 
+    app.get('*', (req, res) => {    res.send(path.join(__dirname = 'webapp/build/index.html'));
+})}
+
+app.get('*', (req, res) => {  res.sendFile(path.join(__dirname+'/webapp/public/index.html'));})
 
 const port = process.env.NODE_ENV || 8080;
 
