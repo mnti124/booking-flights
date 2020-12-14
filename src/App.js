@@ -12,6 +12,7 @@ import {auth} from './firebase';
 import CapeTown from './components/pages/CapeTown';
 import Milan from './components/pages/Milan';
 import Tokyo from './components/pages/Tokyo';
+import Services from './components/pages/Services';
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -85,6 +86,12 @@ function App() {
           <Route path="/tokyo" exact>
             <NavBar/>
             <Tokyo />
+            <Footer />
+          </Route>
+
+          <Route path="/services" exact>
+            <NavBar/>
+            <Services />
             <Footer />
           </Route>
 
