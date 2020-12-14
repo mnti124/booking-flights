@@ -153,7 +153,7 @@ function AvaliableFlights() {
                         <h2 className="flights__departures__departure">Departures</h2>
                         {!isLoading && departureData.length !== 0?
                             <FlightInfo
-                            selectedCountry='U.S.A'
+                            selectedCountry={selectedCountry}
                             {...departureData.appendix.airports[0]}
                             {...departureData.appendix.airlines[0]}
                             {...departureData.request.date}
